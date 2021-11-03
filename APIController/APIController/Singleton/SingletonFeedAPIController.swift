@@ -7,32 +7,17 @@
 
 import Foundation
 
-enum Gender: Equatable {
-    case female
-    case male
-}
-
-struct Item: Equatable {
-    let name: String
-    let age: Int
-    let gender: Gender
-}
-
-class SingletonAPIClient {
+class SingletonFeedAPIClient {
     typealias Result = Swift.Result<[Item], Error>
-    static let shared = SingletonAPIClient()
+    static let shared = SingletonFeedAPIClient()
 
     init() {}
 
     func load(completion: @escaping (Result) -> Void) {}
 }
 
-protocol APIRouter {
-    func display(_ error: Error)
-}
-
-class SingletonAPIController {
-    var api = SingletonAPIClient.shared
+class SingletonFeedAPIController {
+    var api = SingletonFeedAPIClient.shared
     var router: APIRouter?
     var items: [Item]?
 

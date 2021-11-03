@@ -1,41 +1,14 @@
 //
-//  SingletonAPIControllerTest.swift
+//  ProtocolFeedControllerTest.swift
 //  APIControllerTests
 //
 //  Created by Christophe Bugnon on 03/11/2021.
 //
 
-import Foundation
 import XCTest
 @testable import APIController
 
-class SingletonMockAPIClient: SingletonAPIClient {
-    var requestCallCount = 0
-    private var completions = [(Result) -> Void]()
-
-    override func load(completion: @escaping (Result) -> Void) {
-        requestCallCount += 1
-        completions.append(completion)
-    }
-
-    func complete(with feed: [Item], at index: Int = 0) {
-        completions[index](.success(feed))
-    }
-
-    func complete(with error: Error, at index: Int = 0) {
-        completions[index](.failure(error))
-    }
-}
-
-class SingletonAPIRouterSpy: APIRouter {
-    var requestCallCount = 0
-
-    func display(_ error: Error) {
-        requestCallCount += 1
-    }
-}
-
-class SingletonAPIControllerTest: XCTestCase {
+class ProtocolFeedControllerTest: XCTestCase {
     func test_init_doesNotRequestLoadFromClient() {
         let (_, client) = makeSUT()
 
@@ -85,10 +58,27 @@ class SingletonAPIControllerTest: XCTestCase {
 
     // MARK: - Helpers
 
-    private func makeSUT() -> (sut: SingletonAPIController, client: SingletonMockAPIClient) {
-        let sut = SingletonAPIController()
-        let client = SingletonMockAPIClient()
-        sut.api = client
+    private func makeSUT() -> (sut: ProtocolFeedController, client: ProtocolAPIClientSpy) {
+        let client = ProtocolAPIClientSpy()
+        let sut = ProtocolFeedController(client: client)
         return (sut, client)
+    }
+
+    class ProtocolAPIClientSpy: FeedClient {
+        var requestCallCount = 0
+        private var completions = [(Result) -> Void]()
+
+        override func load(completion: @escaping (Result) -> Void) {
+            requestCallCount += 1
+            completions.append(completion)
+        }
+
+        func complete(with feed: [Item], at index: Int = 0) {
+            completions[index](.success(feed))
+        }
+
+        func complete(with error: Error, at index: Int = 0) {
+            completions[index](.failure(error))
+        }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  MutableGlobalStapeAPIController.swift
+//  ProtocolAPIController.swift
 //  APIController
 //
 //  Created by Christophe Bugnon on 03/11/2021.
@@ -7,22 +7,23 @@
 
 import Foundation
 
-class MutableGlobalStateAPIClient {
+class FeedClient {
     typealias Result = Swift.Result<[Item], Error>
-    static var shared = MutableGlobalStateAPIClient()
-
-    init() {}
-
     func load(completion: @escaping (Result) -> Void) {}
 }
 
-class MutableGlobalStateAPIController {
-    let api = MutableGlobalStateAPIClient.shared
+
+class ProtocolFeedController {
+    let client: FeedClient
     var router: APIRouter?
     var items: [Item]?
 
+    init(client: FeedClient) {
+        self.client = client
+    }
+
     func load() {
-        api.load { [weak self] result in
+        client.load { [weak self] result in
             switch result {
             case let .success(feed):
                 self?.items = feed

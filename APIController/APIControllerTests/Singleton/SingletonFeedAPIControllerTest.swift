@@ -1,14 +1,41 @@
 //
-//  ProtocolAPIControllerTest.swift
+//  SingletonFeedAPIControllerTest.swift
 //  APIControllerTests
 //
 //  Created by Christophe Bugnon on 03/11/2021.
 //
 
+import Foundation
 import XCTest
 @testable import APIController
 
-class ProtocolAPIControllerTest: XCTestCase {
+class SingletonMockFeedAPIClient: SingletonFeedAPIClient {
+    var requestCallCount = 0
+    private var completions = [(Result) -> Void]()
+
+    override func load(completion: @escaping (Result) -> Void) {
+        requestCallCount += 1
+        completions.append(completion)
+    }
+
+    func complete(with feed: [Item], at index: Int = 0) {
+        completions[index](.success(feed))
+    }
+
+    func complete(with error: Error, at index: Int = 0) {
+        completions[index](.failure(error))
+    }
+}
+
+class SingletonAPIRouterSpy: APIRouter {
+    var requestCallCount = 0
+
+    func display(_ error: Error) {
+        requestCallCount += 1
+    }
+}
+
+class SingletonFeedAPIControllerTest: XCTestCase {
     func test_init_doesNotRequestLoadFromClient() {
         let (_, client) = makeSUT()
 
@@ -58,27 +85,10 @@ class ProtocolAPIControllerTest: XCTestCase {
 
     // MARK: - Helpers
 
-    private func makeSUT() -> (sut: ProtocolAPIController, client: ProtocolAPIClientSpy) {
-        let client = ProtocolAPIClientSpy()
-        let sut = ProtocolAPIController(client: client)
+    private func makeSUT() -> (sut: SingletonFeedAPIController, client: SingletonMockFeedAPIClient) {
+        let sut = SingletonFeedAPIController()
+        let client = SingletonMockFeedAPIClient()
+        sut.api = client
         return (sut, client)
-    }
-
-    class ProtocolAPIClientSpy: ProtocolAPIClient {
-        var requestCallCount = 0
-        private var completions = [(Result) -> Void]()
-
-        override func load(completion: @escaping (Result) -> Void) {
-            requestCallCount += 1
-            completions.append(completion)
-        }
-
-        func complete(with feed: [Item], at index: Int = 0) {
-            completions[index](.success(feed))
-        }
-
-        func complete(with error: Error, at index: Int = 0) {
-            completions[index](.failure(error))
-        }
     }
 }

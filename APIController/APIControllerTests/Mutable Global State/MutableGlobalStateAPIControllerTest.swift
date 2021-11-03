@@ -1,5 +1,5 @@
 //
-//  MutableGlobalStateAPIControllerTest.swift
+//  MutableGlobalStateFeedControllerTest.swift
 //  APIControllerTests
 //
 //  Created by Christophe Bugnon on 03/11/2021.
@@ -9,7 +9,7 @@ import Foundation
 import XCTest
 @testable import APIController
 
-class MutableGlobalStateMockAPIClient: MutableGlobalStateAPIClient {
+class MutableGlobalStateMockFeedAPIClient: MutableGlobalStateFeedAPIClient {
     var requestCallCount = 0
     private var completions = [(Result) -> Void]()
 
@@ -35,15 +35,15 @@ class RouterSpy: APIRouter {
     }
 }
 
-class MutableGlobalStateAPIControllerTest: XCTestCase {
-    var client: MutableGlobalStateMockAPIClient!
+class MutableGlobalStateFeedControllerTest: XCTestCase {
+    var client: MutableGlobalStateMockFeedAPIClient!
     override func setUp() {
-        client = MutableGlobalStateMockAPIClient()
-        MutableGlobalStateAPIClient.shared = client
+        client = MutableGlobalStateMockFeedAPIClient()
+        MutableGlobalStateFeedAPIClient.shared = client
     }
 
     override func tearDown() {
-        MutableGlobalStateAPIClient.shared = MutableGlobalStateAPIClient()
+        MutableGlobalStateFeedAPIClient.shared = MutableGlobalStateFeedAPIClient()
     }
 
     func test_init_doesNotRequestLoadFromClient() {
@@ -95,7 +95,7 @@ class MutableGlobalStateAPIControllerTest: XCTestCase {
 
     // MARK: - Helpers
 
-    private func makeSUT() -> (MutableGlobalStateAPIController) {
-        return MutableGlobalStateAPIController()
+    private func makeSUT() -> (MutableGlobalStateFeedController) {
+        return MutableGlobalStateFeedController()
     }
 }
