@@ -77,9 +77,9 @@
 		46BDC4302732521200B489C1 /* APIController */ = {
 			isa = PBXGroup;
 			children = (
-				46BDC4462732523300B489C1 /* SingletonAPIController.swift */,
-				46BDC44A27325D6300B489C1 /* MutableGlobalStapeAPIController.swift */,
-				46BDC452273262B000B489C1 /* ProtocolAPIController.swift */,
+				46BDC456273264A400B489C1 /* Singleton */,
+				46BDC4542732649600B489C1 /* Mutable Global State */,
+				46BDC459273264B500B489C1 /* Protocol */,
 			);
 			path = APIController;
 			sourceTree = "<group>";
@@ -87,11 +87,59 @@
 		46BDC43A2732521200B489C1 /* APIControllerTests */ = {
 			isa = PBXGroup;
 			children = (
-				46BDC4482732526900B489C1 /* SingletonAPIControllerTest.swift */,
-				46BDC44C27325DBE00B489C1 /* MutableGlobalStateAPIControllerTest.swift */,
-				46BDC4502732627C00B489C1 /* ProtocolAPIControllerTest.swift */,
+				46BDC457273264AA00B489C1 /* Singleton */,
+				46BDC4552732649F00B489C1 /* Mutable Global State */,
+				46BDC458273264AE00B489C1 /* Protocol */,
 			);
 			path = APIControllerTests;
+			sourceTree = "<group>";
+		};
+		46BDC4542732649600B489C1 /* Mutable Global State */ = {
+			isa = PBXGroup;
+			children = (
+				46BDC44A27325D6300B489C1 /* MutableGlobalStapeAPIController.swift */,
+			);
+			path = "Mutable Global State";
+			sourceTree = "<group>";
+		};
+		46BDC4552732649F00B489C1 /* Mutable Global State */ = {
+			isa = PBXGroup;
+			children = (
+				46BDC44C27325DBE00B489C1 /* MutableGlobalStateAPIControllerTest.swift */,
+			);
+			path = "Mutable Global State";
+			sourceTree = "<group>";
+		};
+		46BDC456273264A400B489C1 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				46BDC4462732523300B489C1 /* SingletonAPIController.swift */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
+		46BDC457273264AA00B489C1 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				46BDC4482732526900B489C1 /* SingletonAPIControllerTest.swift */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
+		46BDC458273264AE00B489C1 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				46BDC4502732627C00B489C1 /* ProtocolAPIControllerTest.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		46BDC459273264B500B489C1 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				46BDC452273262B000B489C1 /* ProtocolAPIController.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
