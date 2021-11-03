@@ -16,6 +16,9 @@
 		46BDC453273262B000B489C1 /* ProtocolFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BDC452273262B000B489C1 /* ProtocolFeedController.swift */; };
 		46BDC45B2732B9A300B489C1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BDC45A2732B9A300B489C1 /* Router.swift */; };
 		46BDC45D2732B9C400B489C1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BDC45C2732B9C400B489C1 /* Item.swift */; };
+		46BDC4602732BA1900B489C1 /* ClosureFeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BDC45F2732BA1900B489C1 /* ClosureFeedController.swift */; };
+		46BDC4622732BA8600B489C1 /* ClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BDC4612732BA8600B489C1 /* ClientSpy.swift */; };
+		46BDC4652732BAC400B489C1 /* ClosureFeedControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BDC4642732BAC400B489C1 /* ClosureFeedControllerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +42,9 @@
 		46BDC452273262B000B489C1 /* ProtocolFeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolFeedController.swift; sourceTree = "<group>"; };
 		46BDC45A2732B9A300B489C1 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		46BDC45C2732B9C400B489C1 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		46BDC45F2732BA1900B489C1 /* ClosureFeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureFeedController.swift; sourceTree = "<group>"; };
+		46BDC4612732BA8600B489C1 /* ClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientSpy.swift; sourceTree = "<group>"; };
+		46BDC4642732BAC400B489C1 /* ClosureFeedControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureFeedControllerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 				46BDC456273264A400B489C1 /* Singleton */,
 				46BDC4542732649600B489C1 /* Mutable Global State */,
 				46BDC459273264B500B489C1 /* Protocol */,
+				46BDC45E2732BA0B00B489C1 /* Closure */,
 				46BDC45A2732B9A300B489C1 /* Router.swift */,
 				46BDC45C2732B9C400B489C1 /* Item.swift */,
 			);
@@ -95,7 +102,9 @@
 			children = (
 				46BDC457273264AA00B489C1 /* Singleton */,
 				46BDC4552732649F00B489C1 /* Mutable Global State */,
+				46BDC4612732BA8600B489C1 /* ClientSpy.swift */,
 				46BDC458273264AE00B489C1 /* Protocol */,
+				46BDC4632732BAB300B489C1 /* Closure */,
 			);
 			path = APIControllerTests;
 			sourceTree = "<group>";
@@ -146,6 +155,22 @@
 				46BDC452273262B000B489C1 /* ProtocolFeedController.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		46BDC45E2732BA0B00B489C1 /* Closure */ = {
+			isa = PBXGroup;
+			children = (
+				46BDC45F2732BA1900B489C1 /* ClosureFeedController.swift */,
+			);
+			path = Closure;
+			sourceTree = "<group>";
+		};
+		46BDC4632732BAB300B489C1 /* Closure */ = {
+			isa = PBXGroup;
+			children = (
+				46BDC4642732BAC400B489C1 /* ClosureFeedControllerTest.swift */,
+			);
+			path = Closure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46BDC45D2732B9C400B489C1 /* Item.swift in Sources */,
+				46BDC4602732BA1900B489C1 /* ClosureFeedController.swift in Sources */,
 				46BDC45B2732B9A300B489C1 /* Router.swift in Sources */,
 				46BDC453273262B000B489C1 /* ProtocolFeedController.swift in Sources */,
 				46BDC44B27325D6300B489C1 /* MutableGlobalStateFeedController.swift in Sources */,
@@ -270,7 +296,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46BDC4652732BAC400B489C1 /* ClosureFeedControllerTest.swift in Sources */,
 				46BDC4512732627C00B489C1 /* ProtocolFeedControllerTest.swift in Sources */,
+				46BDC4622732BA8600B489C1 /* ClientSpy.swift in Sources */,
 				46BDC44D27325DBE00B489C1 /* MutableGlobalStateAPIControllerTest.swift in Sources */,
 				46BDC4492732526900B489C1 /* SingletonFeedAPIControllerTest.swift in Sources */,
 			);

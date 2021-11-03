@@ -1,5 +1,5 @@
 //
-//  ProtocolFeedControllerTest.swift
+//  ClosureFeedControllerTest.swift
 //  APIControllerTests
 //
 //  Created by Christophe Bugnon on 03/11/2021.
@@ -8,7 +8,7 @@
 import XCTest
 @testable import APIController
 
-class ProtocolFeedControllerTest: XCTestCase {
+class ClosureFeedControllerTest: XCTestCase {
     func test_init_doesNotRequestLoadFromClient() {
         let (_, client) = makeSUT()
 
@@ -58,9 +58,11 @@ class ProtocolFeedControllerTest: XCTestCase {
 
     // MARK: - Helpers
 
-    private func makeSUT() -> (sut: ProtocolFeedController, client: ClientSpy) {
+    private func makeSUT() -> (sut: ClosureFeedController, client: ClientSpy) {
         let client = ClientSpy()
-        let sut = ProtocolFeedController(client: client)
+        let sut = ClosureFeedController()
+        sut.loadFeed = client.load
         return (sut, client)
     }
 }
+
