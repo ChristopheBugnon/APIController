@@ -1,5 +1,5 @@
 //
-//  SingletonAPIController.swift
+//  MutableGlobalStapeAPIController.swift
 //  APIController
 //
 //  Created by Christophe Bugnon on 03/11/2021.
@@ -7,32 +7,17 @@
 
 import Foundation
 
-enum Gender: Equatable {
-    case female
-    case male
-}
-
-struct Item: Equatable {
-    let name: String
-    let age: Int
-    let gender: Gender
-}
-
-class SingletonAPIClient {
+class MutableGlobalStateAPIClient {
     typealias Result = Swift.Result<[Item], Error>
-    static let shared = SingletonAPIClient()
+    static var shared = MutableGlobalStateAPIClient()
 
     init() {}
 
     func load(completion: @escaping (Result) -> Void) {}
 }
 
-protocol APIRouter {
-    func display(_ error: Error)
-}
-
-class SingletonAPIController {
-    var api = SingletonAPIClient.shared
+class MutableGlobalStateAPIController {
+    let api = MutableGlobalStateAPIClient.shared
     var router: APIRouter?
     var items: [Item]?
 

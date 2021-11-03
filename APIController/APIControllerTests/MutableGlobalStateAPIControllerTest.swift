@@ -1,5 +1,5 @@
 //
-//  SingletonAPIControllerTest.swift
+//  MutableGlobalStateAPIControllerTest.swift
 //  APIControllerTests
 //
 //  Created by Christophe Bugnon on 03/11/2021.
@@ -9,13 +9,13 @@ import Foundation
 import XCTest
 @testable import APIController
 
-class SingletonMockAPIClient: SingletonAPIClient {
+class MutableGlobalStateMockAPIClient: MutableGlobalStateAPIClient {
     var requestCallCount = 0
     private var completions = [(Result) -> Void]()
 
     override func load(completion: @escaping (Result) -> Void) {
-        requestCallCount += 1
         completions.append(completion)
+        requestCallCount += 1
     }
 
     func complete(with feed: [Item], at index: Int = 0) {
@@ -27,7 +27,7 @@ class SingletonMockAPIClient: SingletonAPIClient {
     }
 }
 
-class SingletonAPIRouterSpy: APIRouter {
+class RouterSpy: APIRouter {
     var requestCallCount = 0
 
     func display(_ error: Error) {
@@ -35,15 +35,25 @@ class SingletonAPIRouterSpy: APIRouter {
     }
 }
 
-class SingletonAPIControllerTest: XCTestCase {
+class MutableGlobalStateAPIControllerTest: XCTestCase {
+    var client: MutableGlobalStateMockAPIClient!
+    override func setUp() {
+        client = MutableGlobalStateMockAPIClient()
+        MutableGlobalStateAPIClient.shared = client
+    }
+
+    override func tearDown() {
+        MutableGlobalStateAPIClient.shared = MutableGlobalStateAPIClient()
+    }
+
     func test_init_doesNotRequestLoadFromClient() {
-        let (_, client) = makeSUT()
+        let _ = makeSUT()
 
         XCTAssertEqual(client.requestCallCount, 0)
     }
 
     func test_load_requestLoadFromClient() {
-        let (sut, client) = makeSUT()
+        let sut = makeSUT()
 
         sut.load()
 
@@ -51,7 +61,7 @@ class SingletonAPIControllerTest: XCTestCase {
     }
 
     func test_load_deliversFeedOnClientSuccessFullRequest() {
-        let (sut, client) = makeSUT()
+        let sut = makeSUT()
         let feed = [Item(name: "Paul", age: 10, gender: .male),
                     Item(name: "Huguette", age: 26, gender: .female)]
 
@@ -62,7 +72,7 @@ class SingletonAPIControllerTest: XCTestCase {
     }
 
     func test_load_doesNotDeliversFeedOnClientError() {
-        let (sut, client) = makeSUT()
+        let sut = makeSUT()
         let clientError = NSError(domain: "any error", code: 0)
 
         sut.load()
@@ -72,7 +82,7 @@ class SingletonAPIControllerTest: XCTestCase {
     }
 
     func test_load_requestRouterToDisplayErrorOnClientError() {
-        let (sut, client) = makeSUT()
+        let sut = makeSUT()
         let clientError = NSError(domain: "any error", code: 0)
         let router = SingletonAPIRouterSpy()
         sut.router = router
@@ -85,10 +95,7 @@ class SingletonAPIControllerTest: XCTestCase {
 
     // MARK: - Helpers
 
-    private func makeSUT() -> (sut: SingletonAPIController, client: SingletonMockAPIClient) {
-        let sut = SingletonAPIController()
-        let client = SingletonMockAPIClient()
-        sut.api = client
-        return (sut, client)
+    private func makeSUT() -> (MutableGlobalStateAPIController) {
+        return MutableGlobalStateAPIController()
     }
 }

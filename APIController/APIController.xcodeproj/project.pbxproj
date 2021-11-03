@@ -10,6 +10,8 @@
 		46BDC4372732521200B489C1 /* APIController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BDC42E2732521200B489C1 /* APIController.framework */; };
 		46BDC4472732523300B489C1 /* SingletonAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BDC4462732523300B489C1 /* SingletonAPIController.swift */; };
 		46BDC4492732526900B489C1 /* SingletonAPIControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BDC4482732526900B489C1 /* SingletonAPIControllerTest.swift */; };
+		46BDC44B27325D6300B489C1 /* MutableGlobalStapeAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BDC44A27325D6300B489C1 /* MutableGlobalStapeAPIController.swift */; };
+		46BDC44D27325DBE00B489C1 /* MutableGlobalStateAPIControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BDC44C27325DBE00B489C1 /* MutableGlobalStateAPIControllerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,8 @@
 		46BDC4362732521200B489C1 /* APIControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APIControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BDC4462732523300B489C1 /* SingletonAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonAPIController.swift; sourceTree = "<group>"; };
 		46BDC4482732526900B489C1 /* SingletonAPIControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonAPIControllerTest.swift; sourceTree = "<group>"; };
+		46BDC44A27325D6300B489C1 /* MutableGlobalStapeAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableGlobalStapeAPIController.swift; sourceTree = "<group>"; };
+		46BDC44C27325DBE00B489C1 /* MutableGlobalStateAPIControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableGlobalStateAPIControllerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				46BDC4462732523300B489C1 /* SingletonAPIController.swift */,
+				46BDC44A27325D6300B489C1 /* MutableGlobalStapeAPIController.swift */,
 			);
 			path = APIController;
 			sourceTree = "<group>";
@@ -78,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				46BDC4482732526900B489C1 /* SingletonAPIControllerTest.swift */,
+				46BDC44C27325DBE00B489C1 /* MutableGlobalStateAPIControllerTest.swift */,
 			);
 			path = APIControllerTests;
 			sourceTree = "<group>";
@@ -192,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46BDC44B27325D6300B489C1 /* MutableGlobalStapeAPIController.swift in Sources */,
 				46BDC4472732523300B489C1 /* SingletonAPIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46BDC44D27325DBE00B489C1 /* MutableGlobalStateAPIControllerTest.swift in Sources */,
 				46BDC4492732526900B489C1 /* SingletonAPIControllerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
