@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		46BDC4372732521200B489C1 /* APIController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46BDC42E2732521200B489C1 /* APIController.framework */; };
+		46BDC4472732523300B489C1 /* SingletonAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BDC4462732523300B489C1 /* SingletonAPIController.swift */; };
+		46BDC4492732526900B489C1 /* SingletonAPIControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BDC4482732526900B489C1 /* SingletonAPIControllerTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		46BDC42E2732521200B489C1 /* APIController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = APIController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46BDC4362732521200B489C1 /* APIControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APIControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		46BDC4462732523300B489C1 /* SingletonAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonAPIController.swift; sourceTree = "<group>"; };
+		46BDC4482732526900B489C1 /* SingletonAPIControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonAPIControllerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 		46BDC4302732521200B489C1 /* APIController */ = {
 			isa = PBXGroup;
 			children = (
+				46BDC4462732523300B489C1 /* SingletonAPIController.swift */,
 			);
 			path = APIController;
 			sourceTree = "<group>";
@@ -72,6 +77,7 @@
 		46BDC43A2732521200B489C1 /* APIControllerTests */ = {
 			isa = PBXGroup;
 			children = (
+				46BDC4482732526900B489C1 /* SingletonAPIControllerTest.swift */,
 			);
 			path = APIControllerTests;
 			sourceTree = "<group>";
@@ -137,9 +143,11 @@
 				TargetAttributes = {
 					46BDC42D2732521200B489C1 = {
 						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1310;
 					};
 					46BDC4352732521200B489C1 = {
 						CreatedOnToolsVersion = 13.1;
+						LastSwiftMigration = 1310;
 					};
 				};
 			};
@@ -184,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46BDC4472732523300B489C1 /* SingletonAPIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46BDC4492732526900B489C1 /* SingletonAPIControllerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +339,7 @@
 		46BDC4412732521200B489C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -350,6 +361,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -357,6 +369,7 @@
 		46BDC4422732521200B489C1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -385,6 +398,8 @@
 		46BDC4442732521200B489C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -399,6 +414,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.christophebugnon.APIControllerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -406,6 +422,8 @@
 		46BDC4452732521200B489C1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
